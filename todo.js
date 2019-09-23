@@ -5,10 +5,11 @@ window.onload = function () {
     var btnAdd = document.getElementById('btn')
     var submit = document.getElementById('submit')
     var locStore = window.localStorage
-
+    
     submit.addEventListener('click', function() {
         saveJson()
     })
+
     function saveJson () {
         return fetch('https://api.myjson.com/bins', {
             method: 'POST',
@@ -50,8 +51,8 @@ window.onload = function () {
         var checkboxTasks = ""
         for (var [key, value] of jsonTasks) {
             checkboxTasks += '<div class="task-checkbox">' +
-            '<input type="checkbox" data-id="' + key + '" id="task-check-' + key + '" name="taskCheck' + key + '"' + (value.done ? 'checked' : '') + '>' +
-            '<label class="taskValue" for="task-check-' + key + '">' + value.title + '</label>' +
+            '<input type="checkbox"  data-id="' + key + '" id="task-check-' + key + '" name="taskCheck' + key + '"' + (value.done ? 'checked' : '') + '>' +
+            '<label class="taskValue strikethrough" for="task-check-' + key + '">' + value.title + '</label>' +
             '</div>'
         }
         tasks.innerHTML = checkboxTasks

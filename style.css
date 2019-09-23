@@ -19,5 +19,6 @@ form {
 a.close {
   float: right;
 }
-.
-
+input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
+  }
